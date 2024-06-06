@@ -10,7 +10,7 @@ interface Node {
 function heuristic(a: Node, b: Node): number {
     return Math.abs(a.x - b.x) + Math.abs(a.y - b.y); // 曼哈顿距离
 }
-export default class PqAstar {
+export default class SimpleAstar {
     private static createNode(x: number, y: number, parent: Node | null = null): Node {
         return { x, y, g: 0, h: 0, f: 0, parent };
     }
@@ -32,7 +32,7 @@ export default class PqAstar {
             const x = node.x + dx;
             const y = node.y + dy;
             if (x >= 0 && x < grid[0].length && y >= 0 && y < grid.length && grid[y][x] === 0) {
-                neighbors.push(PqAstar.createNode(x, y));
+                neighbors.push(SimpleAstar.createNode(x, y));
             }
         }
         return neighbors;
@@ -40,8 +40,8 @@ export default class PqAstar {
     public static findPath(startPos: [number, number], endPos: [number, number], grid: number[][]): Node[] | null {
         const openList: Node[] = [];
         const closedList: Node[] = [];
-        const startNode = PqAstar.createNode(startPos[0], startPos[1]);
-        const endNode = PqAstar.createNode(endPos[0], endPos[1]);
+        const startNode = SimpleAstar.createNode(startPos[0], startPos[1]);
+        const endNode = SimpleAstar.createNode(endPos[0], endPos[1]);
         openList.push(startNode);
         while (openList.length > 0) {
             // 从开放列表中取出 f 值最小的节点
@@ -58,7 +58,7 @@ export default class PqAstar {
                 return path.reverse();
             }
             closedList.push(currentNode);
-            const neighbors = PqAstar.getNeighbors(currentNode, grid);
+            const neighbors = SimpleAstar.getNeighbors(currentNode, grid);
             for (const neighbor of neighbors) {
                 if (closedList.some(node => node.x === neighbor.x && node.y === neighbor.y)) {
                     continue;
