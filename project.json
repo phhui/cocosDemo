@@ -1,0 +1,8 @@
+{
+  "engine": "cocos-creator-js",
+  "packages": "packages",
+  "name": "PqAstar",
+  "id": "6b132e6e-fbb4-4f83-8a57-11b3c88070f9",
+  "version": "2.4.13",
+  "isNew": false
+}

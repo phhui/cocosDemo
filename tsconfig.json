@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "checkJs": false,
+        "module": "commonjs",
+        "target": "es6",
+        "experimentalDecorators": true,
+        "skipLibCheck": true,
+        "outDir": "temp/vscode-dist",
+        "forceConsistentCasingInFileNames": true,
+        "esModuleInterop": true,
+        "baseUrl": ".",
+        "paths": {
+            "*": [
+                "assets/*"
+            ]
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "library",
+        "local",
+        "temp",
+        "build",
+        "settings"
+    ]
+}
