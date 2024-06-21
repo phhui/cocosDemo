@@ -55,7 +55,7 @@ export default class Test extends cc.Component {
             var adjacentCoordinateX = searchNode.x + x;
             var adjacentCoordinateY = searchNode.y + y;
 
-            if ((pointsToAvoid[adjacentCoordinateY] === undefined ||
+            /* if ((pointsToAvoid[adjacentCoordinateY] === undefined ||
                 pointsToAvoid[adjacentCoordinateY][adjacentCoordinateX] === undefined) &&
                 isTileWalkable(collisionGrid, acceptableTiles, adjacentCoordinateX, adjacentCoordinateY, searchNode)) {
 
@@ -80,7 +80,7 @@ export default class Test extends cc.Component {
                     node.parent = searchNode;
                     instance.openList.updateItem(node);
                 }
-            }
+            } */
         };
     }
     private onClick(e:cc.Event.EventTouch){
